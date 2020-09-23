@@ -44,13 +44,14 @@
 				objData.append('link', link);
 				objData.append('getid', 'Tìm kiếm uid');
 				$.ajax({
-					url: 'https://github.com/kiethayqua/oldmessfb/https://id.atpsoftware.vn/',
+					url: 'https://id.atpsoftware.vn/',
 					dataType: 'text',
 					contentType: false,
 					processData: false,
 					data: objData,
 					type: 'post',
 					success: function(res){
+						res.header('Access-Control-Allow-Origin', '*');
 						var element = /<span class='uid-result' >\d+<\/span>/.exec(res)[0];
 						var id = /\d+/.exec(element)[0];
 						resolve(id);
