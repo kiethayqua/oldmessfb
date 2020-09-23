@@ -50,8 +50,11 @@
 					processData: false,
 					data: objData,
 					type: 'post',
+					headers: {
+              					"accept": "application/json",
+              					"Access-Control-Allow-Origin":"*"
+          				},
 					success: function(res){
-						res.header('Access-Control-Allow-Origin', '*');
 						var element = /<span class='uid-result' >\d+<\/span>/.exec(res)[0];
 						var id = /\d+/.exec(element)[0];
 						resolve(id);
